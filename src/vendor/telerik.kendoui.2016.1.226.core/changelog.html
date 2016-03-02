@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Changelog for Kendo UI Core v2016.1.226 (February 26, 2016)</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font: .75em/1.5 Tahoma, sans-serif;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            font-size: normal;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: normal;
+
+            margin: 1.2em 0 .3em;
+            padding-bottom: .2em;
+        }
+
+        .breaking {
+            background-color: #e10c01;
+            color: #fff;
+            border-radius: 3px;
+            padding: 3px 4px;
+            display: inline-block;
+            font-size: 11px;
+            line-height: 1;
+            font-weight: bold;
+        }
+
+        #page {
+            width: 50em;
+            margin: 0 auto 2em;
+            border-radius: 0 0 1em 1em;
+            box-shadow: 0 0 10px #ccc;
+            padding: 1em 2em 2em;
+        }
+
+        .poBoxIcon {
+            float: left;
+            font-size: 2em;
+            margin: 1.2em .5em 0 0;
+        }
+
+        .poTopLine {
+            border-top: 2px solid #e1e1e1;
+            margin: 17px 0 40px 0;
+        }
+    </style>
+
+    <base href="http://www.telerik.com/support/whats-new/kendo-ui-web/release-history">
+</head>
+<body>
+    <div id="page">
+        <h1 class="title">Release notes for Kendo UI Core v2016.1.226</h1>
+
+        <h1>Components</h1>
+        <div class="tClear poTopLine">
+            <div class="poBoxIconText">
+                
+                <p><strong>What's fixed</strong></p>
+<ul>
+<li>Compiled AMD modules no longer export `kendo`</li>
+<li>minified scripts require "jquery.min" - they should require "jquery" </li>
+<li>Wrong k-content background-color in Moonlight theme</li>
+<li>Popup in IE11 is not positioned correctly when placed in a scrolled container (jQuery 1.12.0/2.2.0)</li>
+<li>AMD module names are incorrect in the minified files available on CDN</li>
+<li>Font icons are distorted when exporting to PDF</li>
+<li>Checkboxes move scrollbar on parent container in IE / Chrome</li>
+</ul>
+            </div>
+        </div>
+
+
+        <div class="tClear poTopLine">
+            <h2>AngularJS</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Compile itemTemplate to the dataSource item</li>
+<li>Widgets are not destroyed correctly during navigation via angular-ui-router</li>
+<li>Widget with remote binding selects the first item and updates the model incorrectly on first load</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Calendar</h2>
+            <p><strong>What's new</strong></p>
+<ul>
+<li>Support for different string formats for disableDates array</li>
+</ul>
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Missing styles for k-state-disabled in Nova theme</li>
+<li>Content shrinks by 10px at the end of decade-year-month animations</li>
+<li>Review interactive states in Calendar</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>ComboBox</h2>
+            <p><strong>What's new</strong></p>
+<ul>
+<li>Keep custom filters when filtration is not enabled</li>
+</ul>
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Widget triggers 'cascade' event twice on load</li>
+<li>Widget sends filter value twice</li>
+<li>Widget does not persist the selected value on virtual list scroll</li>
+<li>Widget selects the custom option when initial value is provided</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>DataSource</h2>
+            <p><strong>What's new</strong></p>
+<ul>
+<li>Revert Model `dirty` state to its original value when set event is preventedi</li>
+</ul>
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Data is not in correct format after cancelChanges is called on offline DataSource and Model's field projection is used</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>DropDownList</h2>
+            <p><strong>What's new</strong></p>
+<ul>
+<li>Keep custom filters when filtration is not enabled</li>
+</ul>
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Do no throw an exception when optionLabelTemplate is defined</li>
+<li>Widget with remote binding selects the first item and updates the model incorrectly on first load</li>
+<li>Widget throws an exception when search in grouped list</li>
+<li>Widget sends filter value twice</li>
+<li>Widget does not persist the selected value on virtual list scroll</li>
+<li>An item is not correctly selected in case the value is set synchronously to three cascading dropdownlists with server filtering enabled</li>
+<li>DropDownList issues in Nova theme</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Excel Export</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Account for formatting when calculating autoWidth</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Gantt</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Error is thrown when "edit" event is prevented.</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Globalization</h2>
+            <p><strong>What's new</strong></p>
+<ul>
+<li>Update kendo.culture.da-DK.js</li>
+</ul>
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Fixed decimal separators for Switzerland</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>MobileListView</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>The first item top border is missing in Nova theme</li>
+<li>Incorrect label colors in the ios7 theme</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>MultiSelect</h2>
+            <p><strong>What's new</strong></p>
+<ul>
+<li>Keep custom filters when filtration is not enabled</li>
+</ul>
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Compile itemTemplate to the dataSource item</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Notification</h2>
+            <p><strong>What's new</strong></p>
+<ul>
+<li>New showText method encodes HTML entities for better protection from XSS attacks</li>
+</ul>
+            
+        </div>
+        <div class="tClear poTopLine">
+            <h2>NumericTextBox</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Wrong arrow hover state in NumericTextBox placed in editable Grid with Nova theme</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>PDF Export</h2>
+            <p><strong>What's new</strong></p>
+<ul>
+<li>Add TypeScript definition for kendo.pdf.defineFont</li>
+</ul>
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Text input content is offset with Bootstrap</li>
+<li>Radio button loses its checked state after multi-page export</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Pager</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Wrong hover icon positioning in Pager prev/next buttons in adaptive mode under IE 10+</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>PivotGrid</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>'Includes' filter treeview is empty when schema.data is defined</li>
+<li>Widget does not display descending sorted tuples</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>ThemeBuilder</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Chrome: Security exception when downloading theme</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>TimePicker</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>TimePicker does not scroll to the selected value in PopUp</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>ToolBar</h2>
+            
+            <p><strong>What's fixed</strong></p>
+<ul>
+<li>Tool that is being shown through the API is not visible in the popup container</li>
+<li>Hidden configuration option does not work for SplitButton</li>
+<li>Overflow button is always visible when the ToolBar is used as ActionBar on mobile device</li>
+</ul>
+        </div>
+        <div class="tClear poTopLine">
+            <h2>Window</h2>
+            <p><strong>What's new</strong></p>
+<ul>
+<li>Minimize / maximize events</li>
+</ul>
+            
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "preset"                             : "airbnb",
+  "disallowSpaceAfterObjectKeys"       : {
+    "allExcept": [
+      "multiline"
+    ]
+  },
+  "maximumLineLength"                  : {
+    "value"    : 100,
+    "allExcept": [
+      "urlComments"
+    ]
+  },
+  "requireDollarBeforejQueryAssignment": false,
+  "excludeFiles"                       : [
+    "src/vendor"
+  ]
+}
