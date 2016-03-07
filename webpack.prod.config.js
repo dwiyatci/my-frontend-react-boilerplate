@@ -14,8 +14,6 @@ module.exports = {
       path.join(__dirname, 'src'),
     ],
     alias     : {
-      'bootstrap-css'    : 'bootstrap/dist/css',
-      'bootstrap-js'     : 'bootstrap/dist/js/umd',
       //'kendo-ui-core-css': 'kendo-ui-core/dist/styles/web',
       //'kendo-ui-core-js' : 'kendo-ui-core/src',
       'kendo-ui-core-css': './src/vendor/telerik.kendoui.2016.1.226.core/src/styles/web',
@@ -25,16 +23,22 @@ module.exports = {
   },
   entry  : {
     vendor: [
+      'bootstrap-loader',
+      'font-awesome-loader!./font-awesome.config.js',
       'lodash',
       'jquery',
-      'font-awesome-webpack',
-      'bootstrap-css/bootstrap.min',
       'kendo-ui-core-css/kendo.common-bootstrap.core',
       'kendo-ui-core-css/kendo.bootstrap',
       //'kendo-ui-core-js/kendo.window',
       'kendo-ui-core-js/kendo.ui.core',
+      'react',
+      'react-dom',
+      'react-router',
     ],
-    app   : ['./src/main.js'],
+    app   : [
+      'babel-polyfill',
+      './src/main.js',
+    ],
   },
   output : {
     path      : path.join(__dirname, 'dist'),
@@ -48,9 +52,6 @@ module.exports = {
         warnings: false,
       },
     }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    }),
 
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -63,6 +64,14 @@ module.exports = {
     }),
 
     new ExtractTextPlugin('[name].css'),
+
+    new webpack.ProvidePlugin({
+      'window.Tether': 'tether',
+    }),
+
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    }),
   ],
   module : {
     loaders: [
@@ -77,10 +86,10 @@ module.exports = {
         loader : 'babel',
         query  : {
           presets: ['es2015', 'stage-0', 'react'],
+          plugins: ['transform-runtime'],
         },
       },
       {
-        test   : /\.js$/,
         include: [
           path.join(__dirname, 'node_modules/bootstrap/dist/js/umd'),
           //path.join(__dirname, 'node_modules/kendo-ui-core/src'),
@@ -92,24 +101,28 @@ module.exports = {
         test  : /\.css$/,
         loader: ExtractTextPlugin.extract('style', 'css'),
       },
+      // the url-loader uses DataUrls.
+      // the file-loader emits files.
+      {
+        test  : /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        // Limiting the size of the woff fonts breaks font-awesome ONLY for the extract text plugin
+        // loader: "url?limit=10000"
+        loader: 'url',
+      },
+      {
+        test  : /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+        loader: 'file',
+      },
+      {
+        test  : /\.(png|gif|jpg)$/,
+        loader: 'url?limit=8192',
+      },
       {
         test   : /\.html$/,
         include: [
           path.join(__dirname, 'src'),
         ],
         loader : 'html',
-      },
-      {
-        test  : /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url?limit=10000&minetype=application/font-woff',
-      },
-      {
-        test  : /.(png|jpg|gif)$/,
-        loader: 'url?limit=8192',
-      },
-      {
-        test  : /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file',
       },
       {
         test   : /\.json$/,
