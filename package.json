@@ -13,6 +13,9 @@
     "react"        : "^0.14.7",
     "react-dom"    : "^0.14.7",
     "react-router" : "^2.0.0",
+    "redux"        : "^3.3.1",
+    "redux-logger" : "^2.6.1",
+    "redux-thunk"  : "^2.0.1",
     "tether"       : "^1.2.0"
   },
   "devDependencies": {

@@ -34,6 +34,9 @@ module.exports = {
       'react',
       'react-dom',
       'react-router',
+      'redux',
+      'redux-thunk',
+      'redux-logger',
     ],
     app   : [
       'babel-polyfill',
