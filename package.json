@@ -25,7 +25,6 @@
     "babel-preset-stage-0"          : "^6.5.0",
     "bootstrap-loader"              : "^1.0.9",
     "css-loader"                    : "^0.23.1",
-    "express"                       : "^4.13.4",
     "extract-text-webpack-plugin"   : "^1.0.1",
     "file-loader"                   : "^0.8.5",
     "font-awesome-loader"           : "0.0.1",
@@ -45,8 +44,7 @@
     "updtr"                         : "^0.1.7",
     "url-loader"                    : "^0.5.7",
     "webpack"                       : "^1.12.14",
-    "webpack-dev-server"            : "^1.14.1",
-    "webpack-hot-middleware"        : "^2.9.1"
+    "webpack-dev-server"            : "^1.14.1"
   },
   "scripts"        : {
     "setup"        : "npm install rimraf updtr webpack webpack-dev-server jscs -g",
@@ -54,7 +52,7 @@
     "clean"        : "rimraf dist",
     "webpack"      : "webpack",
     "watch"        : "webpack -w",
-    "start"        : "node devServer",
+    "start"        : "webpack-dev-server --inline --hot",
     "lint"         : "jscs src",
     "build"        : "npm run lint && npm run clean && webpack --config webpack.prod.config.js",
     "update"       : "updtr && npm run update:global",

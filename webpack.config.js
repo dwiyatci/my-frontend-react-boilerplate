@@ -8,8 +8,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  devtool: 'eval',
-  resolve: {
+  devtool  : 'eval',
+  resolve  : {
     root      : [
       path.join(__dirname, 'src'),
     ],
@@ -21,7 +21,7 @@ module.exports = {
     },
     extensions: ['', '.js', '.css', '.html', '.json'],
   },
-  entry  : {
+  entry    : {
     vendor: [
       'bootstrap-loader',
       'font-awesome-loader!./font-awesome.config.js',
@@ -36,17 +36,16 @@ module.exports = {
       'react-router',
     ],
     app   : [
-      'webpack-hot-middleware/client',
       'babel-polyfill',
       './src/main.js',
     ],
   },
-  output : {
+  output   : {
     path      : path.join(__dirname, 'dist'),
     filename  : '[name].js',
     publicPath: '/',
   },
-  plugins: [
+  plugins  : [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
 
@@ -70,7 +69,7 @@ module.exports = {
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
   ],
-  module : {
+  module   : {
     loaders: [
       {
         test   : /\.js$/,
@@ -129,5 +128,10 @@ module.exports = {
         loader : 'json',
       },
     ],
+  },
+  devServer: {
+    noInfo            : true,
+    historyApiFallback: true,
+    port              : 3000,
   },
 };
